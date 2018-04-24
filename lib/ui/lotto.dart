@@ -29,13 +29,12 @@ class MakeLottoState extends State<Lotto>{
             _lottoMessage = "ผัดกระเพราะไข่ดาว";
             break;
           case 4:
-            _lottoMessage = "เดี๋ยวนะ มึงลืมปลาหมึกกรอบๆ";
+            _lottoMessage = "ลืมปลาหมึกกรอบๆ";
             break;
           default:
             _lottoMessage = "ลืมตาขึ้นมาขึ้นมาพร้อมคำว่าเหงา";
             break;
         }
-        debugPrint("$rand");
         _lottoCounter = _lottoCounter + 100;      
     });
   }
@@ -65,13 +64,14 @@ class MakeLottoState extends State<Lotto>{
           new Expanded(
             child: new Center(
                               child: new Text(
-                                            "\$$_lottoMessage",
+                                            "$_lottoMessage \r\n \$$_lottoCounter",
                                             style: new TextStyle(
                                               fontWeight: FontWeight.w800,
                                               fontSize: 34.0,
-                                              color: Colors.blueAccent.shade400,
+                                              color: _lottoCounter > 1000 ? Colors.red.shade900: Colors.blueAccent.shade400,
                                               fontFamily: 'SukhumvitSetBold',
                                             ),
+                                            textAlign: TextAlign.center,
                                             textDirection: TextDirection.ltr,
                                           ),
                             ),
